@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ssmm2.example.persistence.mapper.UserMapper">
+  <cache/>
+  <insert id="save">
+   INSERT INTO TB_USER(NAME,PASSWORD,REMARK) VALUES
+   <foreach item="item" index="index" collection="array"   separator="," >
+    (#{item.NAME,jdbcType=VARCHAR},#{item.PASSWORD,jdbcType=VARCHAR},#{item.REMARK,jdbcType=VARCHAR})
+   </foreach>
+  </insert>
+  <insert id="saveByAll" parameterType="list">
+    INSERT INTO TB_USER(NAME,PASSWORD,REMARK) 
+    VALUES
+    <foreach item="item" index="index" collection="list"   separator="," >
+      (#{item.NAME,jdbcType=VARCHAR},#{item.PASSWORD,jdbcType=VARCHAR},#{item.REMARK,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  
+
+  <delete id="deleteByIds" parameterType="string">
+  	  DELETE FROM TB_USER WHERE ID IN
+      <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
+    	#{item}
+      </foreach>
+  </delete>
+  
+  <delete id="deleteByExamples" parameterType="hashmap">
+  	  DELETE FROM TB_USER WHERE ID IN
+      <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
+    	#{item.ID}
+      </foreach>
+  </delete>
+  
+  <update id="update" parameterType="hashmap">
+  	<foreach item="item" index="index" collection="array"  separator=","  >
+      UPDATE TB_USER SET 
+      	NAME=#{item.NAME},
+      	PASSWORD=#{item.PASSWORD},
+      	MEMARK=${item.REMARK} 
+      WHERE ID =${item.ID}
+    </foreach>
+  </update>
+  
+  <select id="findByIds" resultType="hashmap">
+  	SELECT * FROM TB_USER 
+  		<if test="ID!=null">
+  		WHERE ID IN
+  		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
+  		  #{item}
+  		</foreach>
+  		</if>
+  </select>
+  
+    <select id="findByAll" resultType="hashmap">
+  	SELECT * FROM TB_USER 
+  		<if test="ID!=null">
+  		WHERE ID IN
+  		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
+  		  #{item}
+  		</foreach>
+  		</if>
+  </select>
+  
+  <select id="conut" resultType="long">
+     SELECT count(*) FROM TB_USER
+  </select>
+  
+</mapper>

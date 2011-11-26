@@ -15,7 +15,8 @@ public class IdentityAction extends ExecuteAction {
 		System.out.println(users.get("NAME"));
 		System.out.println(users.get("PASSWORD"));
 		try {
-			identityService.addUser(users);
+			//identityService.addUser(users);
+			identityService.findBypage(2, 5);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

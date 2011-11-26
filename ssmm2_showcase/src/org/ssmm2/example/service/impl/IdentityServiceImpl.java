@@ -1,5 +1,6 @@
 package org.ssmm2.example.service.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,12 @@ public class IdentityServiceImpl implements IdentityService {
 	}
 	public int deleteGroup(Map<String, String> user) throws Exception {
 		return 0;
+	}
+	@Override
+	public List<Map<String, Object>> findBypage(int curpage, int prepage) {
+		List<Map<String, Object>> list=userServiceImpl.find(curpage, prepage);
+		System.out.println(list);
+		return list;
 	}
 	
 }

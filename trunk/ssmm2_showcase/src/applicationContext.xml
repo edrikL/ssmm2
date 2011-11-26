@@ -52,6 +52,7 @@
 		</property>
 	</bean>
 
+	<!--分页插件，dialectClass是指定的方言-->
 	<bean id="pagingPlugin" class="org.ssmm2.common.plugins.PagingPlugin">
 		<property name="dialectClass">
 			<value>org.ssmm2.common.persistence.dialect.DerbyDialect</value>
@@ -60,6 +61,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" value="classpath*:org/ssmm2/example/persistence/xml/**/*.xml" />
+		<!--注入分页插件-->
 		<property name="plugins">
 			<list>
 			  <ref bean="pagingPlugin" />

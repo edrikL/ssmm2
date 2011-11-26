@@ -1,0 +1,26 @@
+2011-11-26：
+增加mybaits物理分页插件，并支持集成到spring
+使用步骤:
+1、将common-ssmm2-paging_plugin_0.0.2.jar或者common-ssmm2_0.0.2.jar复制到程序的lib下。
+2、在spring配置文件中加入
+
+	<!--分页插件，dialectClass是指定的方言-->
+	<bean id="pagingPlugin" class="org.ssmm2.common.plugins.PagingPlugin">
+		<property name="dialectClass">
+			<value>org.ssmm2.common.persistence.dialect.DerbyDialect</value>
+		</property>
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:org/ssmm2/example/persistence/xml/**/*.xml" />
+		<!--注入分页插件-->
+		<property name="plugins">
+			<list>
+			  <ref bean="pagingPlugin" />
+			</list>
+		</property>
+	</bean>
+	<!--加载Mapper -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="org.ssmm2.example.persistence.mapper" />
+	</bean>

@@ -65,4 +65,8 @@
      SELECT count(*) FROM TB_USER
   </select>
   
+  <select id="findByPage" resultType="hashmap">
+   	SELECT * FROM TB_USER 
+  </select>
+  
 </mapper>

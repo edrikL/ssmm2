@@ -11,8 +11,10 @@
 <s:fielderror></s:fielderror>
  <form action="<%=request.getContextPath()%>/identity/user_add" method="post">
  	    <input type="hidden" value="add_user" name="prop.INPUT">
-     	用户名：<input type="text" name="prop.NAME" >
-    	 密码： <input type="password" name="prop.PASSWORD" >
+     	用户名：<input type="text" name="prop.USER_NAME" >
+    	     密码：<input type="password" name="prop.USER_PASS" >
+    	     邮箱：<input type="text" name="prop.USER_EMAIL" >
+    	     备注：<input type="text" name="prop.USER_" >
     	<input type="submit">
  </form>
 </body>

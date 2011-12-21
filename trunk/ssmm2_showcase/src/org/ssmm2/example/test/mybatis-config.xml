@@ -14,7 +14,7 @@
 		</environment>
 	</environments>
 	<mappers>
-		<mapper resource="org/ssmm2/example/persistence/xml/User.xml" />
-		<mapper resource="org/ssmm2/example/persistence/xml/Group.xml" />
+		<mapper resource="org/ssmm2/persistence/xml/User.xml" />
+		<mapper resource="org/ssmm2/persistence/xml/Group.xml" />
 	</mappers>
 </configuration>

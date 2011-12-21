@@ -16,5 +16,5 @@ public interface MemberShipMapper {
 	List<Map> findByExample(Map<Object,Object> example);
 	int count();
 	List<Map> findByPage(@Param("rowBounds") RowBounds rowBounds);
-	List<Map<String,Object>> findByUser(String uid);
+	List<Map> findByUser(String uid);
 }

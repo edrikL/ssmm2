@@ -13,7 +13,7 @@ public interface MemberShipMapper {
 	int update(Map...entity);
 	List<Map> findByAll();
 	List<Map> findByIds(String...id);
-	List<Map> findByExample(Map<Object,Object> example);
+	List<Map> findByExample(Map example);
 	int count();
 	List<Map> findByPage(@Param("rowBounds") RowBounds rowBounds);
 	List<Map> findByUser(String uid);

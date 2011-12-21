@@ -10,8 +10,8 @@
 <s:fielderror></s:fielderror>
 <form action="<%=request.getContextPath()%>/identity/group_add" method="post">
  	    <input type="hidden" value="add_user" name="prop.INPUT">
-     	用户名：<input type="text" name="prop.NAME" >
-    	 密码： <input type="password" name="prop.PASSWORD" >
+     	 组名：<input type="text" name="prop.GROUP_NAME" >
+    	 备注： <input type="password" name="prop.GROUP_REMARK" >
     	<input type="submit">
  </form>
 </body>

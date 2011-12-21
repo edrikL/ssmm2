@@ -57,6 +57,6 @@
 	</bean>
 	<!--加载Mapper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="org.ssmm2.example.persistence.mapper" />
+		<property name="basePackage" value="org.ssmm2.persistence.mapper" />
 	</bean>
 </beans>

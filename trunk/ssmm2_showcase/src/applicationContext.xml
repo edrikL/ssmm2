@@ -10,10 +10,8 @@
 	   http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!-- 搜索组件 -->
 	<context:component-scan base-package="org.ssmm2.example">
-		<context:include-filter type="regex"
-			expression=".action.*" />
-		<context:include-filter type="regex"
-			expression=".service.*" />
+		<context:include-filter type="regex" expression=".action.*" />
+		<context:include-filter type="regex" expression=".service.*" />
 	</context:component-scan>
 	<!-- 数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -24,33 +22,22 @@
 		<property name="password" value="123456"></property>
 	</bean>
 	<!-- 事务管理 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
-
-	<bean id="transactionInterceptor"
-		class="org.springframework.transaction.interceptor.TransactionInterceptor">
-		<property name="transactionManager" ref="transactionManager" />
-		<property name="transactionAttributes">
-			<props>
-				<prop key="*">PROPAGATION_REQUIRED</prop>
-			</props>
-		</property>
-	</bean>
-	<bean
-		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-		<property name="beanNames">
-			<list>
-				<value>*Service</value>
-			</list>
-		</property>
-		<property name="interceptorNames">
-			<list>
-				<value>transactionInterceptor</value>
-			</list>
-		</property>
-	</bean>
+	<!-- 事务拦截规则 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<!-- 事务拦截路径 -->
+	<aop:config>
+		<aop:pointcut id="serviceOperation" expression="execution(* org.ssmm2.example.service.*.*(..))"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+	</aop:config>
 
 	<!--分页插件，dialectClass是指定的方言-->
 	<bean id="pagingPlugin" class="org.ssmm2.common.plugins.PagingPlugin">

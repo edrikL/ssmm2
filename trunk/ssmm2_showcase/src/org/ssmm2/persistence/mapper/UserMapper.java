@@ -16,6 +16,6 @@ public interface UserMapper{
 	List<Map> findByExample(Map<Object,Object> example);
 	int count();
 	List<Map> findByPage(@Param("rowBounds") RowBounds rowBounds);
-	List<Map<String,Object>> findByGroup(long gid);
+	List<Map> findByGroup(int gid);
 
 }

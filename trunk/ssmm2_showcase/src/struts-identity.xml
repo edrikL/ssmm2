@@ -2,7 +2,11 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
 <struts>
   <package  extends="struts-default"  name="identity" namespace="/identity">
-    <action name="identiy*" class="org.ssmm2.example.action.IdentityAction" method="{1}">
+    <action name="user*" class="org.ssmm2.example.action.UserAction" method="{1}">
+         <result name="input">/page/identity/${prop.INPUT}.jsp</result>
+         <result>/page/identity/list.jsp</result>
+    </action>
+    <action name="group*" class="org.ssmm2.example.action.GroupAction" method="{1}">
          <result name="input">/page/identity/${prop.INPUT}.jsp</result>
          <result>/page/identity/list.jsp</result>
     </action>

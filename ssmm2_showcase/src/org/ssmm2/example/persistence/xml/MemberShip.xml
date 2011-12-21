@@ -34,17 +34,27 @@
     </foreach>
   </update>
   
-  <select id="findByIds" resultType="string">
+  <select id="findByGroupIds" resultType="string">
   	SELECT * FROM TB_MEMBERSHIP 
-  		<if test="ID!=null">
-  		WHERE ID IN
+  		<if test="GROUP_ID!=null">
+  		WHERE GROUP_ID IN
   		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
   		  #{item}
   		</foreach>
   		</if>
   </select>
   
-  <select id="conut" resultType="long">
+   <select id="findByUserIds" resultType="string">
+  	SELECT * FROM TB_MEMBERSHIP 
+  		<if test="GROUP_ID!=null">
+  		WHERE USER_ID IN
+  		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
+  		  #{item}
+  		</foreach>
+  		</if>
+  </select>
+  
+  <select id="conut" resultType="int">
      SELECT count(*) FROM TB_MEMBERSHIP
   </select>
 </mapper>

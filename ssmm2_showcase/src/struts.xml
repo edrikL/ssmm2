@@ -3,5 +3,5 @@
 <struts>
   <package  extends="struts-default"  name="default" namespace="/">
   </package>
-  <include file="org/ssmm2/example/config/struts-identity.xml"/>
+  <include file="struts-identity.xml"/>
 </struts>

@@ -53,7 +53,7 @@
   	SELECT * FROM TB_USER 
   </select>
   
-  <select id="conut" resultType="long">
+  <select id="conut" resultType="int">
      SELECT count(*) FROM TB_USER
   </select>
   

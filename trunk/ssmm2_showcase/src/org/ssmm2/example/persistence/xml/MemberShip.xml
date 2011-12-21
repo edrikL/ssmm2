@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="org.ssmm2.example.persistence.mapper.MemberShipMapper" >
 <cache/>
-  <insert id="save" parameterType="hashmap">
+  <insert id="insert" parameterType="hashmap">
   	<foreach item="item" index="index" collection="array"   separator="," >
     	INSERT INTO TB_MEMBERSHIP(USER_ID,GROUP_ID)VALUES(
     		#{item.USER_ID,jdbcType=INTEGER},

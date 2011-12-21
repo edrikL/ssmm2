@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="org.ssmm2.example.persistence.mapper.UserGroupMapper" >
-  <insert id="save" parameterType="hashmap">
+  <insert id="insert" parameterType="hashmap">
+   	INSERT INTO TB_GROUP(GROUP_NAME,GROUP_REMARK)VALUES
   	<foreach item="item" index="index" collection="array"   separator="," >
-    	INSERT INTO TB_GROUP(NAME,REMARK)VALUES(
+    	(
     		#{item.NAME,jdbcType=VARCHAR},
     		#{item.REMARK,jdbcType=VARCHAR}
-    		)
+    	)
   	</foreach>
   </insert>
 
   <delete id="deleteByIds" parameterType="string">
-  	  DELETE FROM TB_GROUP WHERE ID IN
+  	  DELETE FROM TB_GROUP WHERE GROUP_ID IN
       <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
     	#{item}
       </foreach>

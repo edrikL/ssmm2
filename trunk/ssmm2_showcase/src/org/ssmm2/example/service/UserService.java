@@ -2,7 +2,7 @@ package org.ssmm2.example.service;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.ssmm2.example.persistence.mapper.UserMapper;
+import org.ssmm2.persistence.mapper.UserMapper;
 
 import java.util.List;
 import java.util.Map;
@@ -17,8 +17,8 @@ public class UserService  {
 	}
 
 	public int add(Map<String, String> user) throws Exception {
-		  userMapper.save(user);
-		  userMapper.save(user);
+		  userMapper.insert(user);
+		  userMapper.insert(user);
 		return 0;
 	}
 

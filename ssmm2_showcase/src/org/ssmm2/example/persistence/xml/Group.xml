@@ -3,7 +3,7 @@
 <mapper namespace="org.ssmm2.example.persistence.mapper.UserGroupMapper" >
   <insert id="save" parameterType="hashmap">
   	<foreach item="item" index="index" collection="array"   separator="," >
-    	INSERT INTO TB_USER_GROUP(NAME,REMARK)VALUES(
+    	INSERT INTO TB_GROUP(NAME,REMARK)VALUES(
     		#{item.NAME,jdbcType=VARCHAR},
     		#{item.REMARK,jdbcType=VARCHAR}
     		)
@@ -11,14 +11,14 @@
   </insert>
 
   <delete id="deleteByIds" parameterType="string">
-  	  DELETE FROM TB_USER_GROUP WHERE ID IN
+  	  DELETE FROM TB_GROUP WHERE ID IN
       <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
     	#{item}
       </foreach>
   </delete>
   
   <delete id="deleteByExamples" parameterType="hashmap">
-  	  DELETE FROM TB_USER_GROUP WHERE ID IN
+  	  DELETE FROM TB_GROUP WHERE ID IN
       <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
     	#{item.ID}
       </foreach>
@@ -26,7 +26,7 @@
   
   <update id="update" parameterType="hashmap">
   	<foreach item="item" index="index" collection="array"  separator=","  >
-      UPDATE TB_USER_GROUP SET 
+      UPDATE TB_GROUP SET 
       	NAME=#{item.NAME},
       	MEMARK=${item.REMARK} 
       WHERE ID =${item.ID}
@@ -34,7 +34,7 @@
   </update>
   
   <select id="findByIds" resultType="string">
-  	SELECT * FROM TB_USER_GROUP 
+  	SELECT * FROM TB_GROUP 
   		<if test="ID!=null">
   		WHERE ID IN
   		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
@@ -44,7 +44,7 @@
   </select>
   
   <select id="conut" resultType="long">
-     SELECT count(*) FROM TB_USER_GROUP
+     SELECT count(*) FROM TB_GROUP
   </select>
   
 </mapper>

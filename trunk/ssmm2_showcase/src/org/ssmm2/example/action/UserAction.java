@@ -1,19 +1,12 @@
 package org.ssmm2.example.action;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.ssmm2.common.web.action.ExecuteAction;
-import org.ssmm2.example.service.impl.UserServiceImpl;
-
-
-
-
+import org.ssmm2.example.service.UserService;
 
 public class UserAction extends ExecuteAction {
 	@Autowired
-	private transient UserServiceImpl userServiceImpl;
-
-
+	private transient UserService userService;
 	private static final long serialVersionUID = 1L;
 
 	
@@ -22,7 +15,7 @@ public class UserAction extends ExecuteAction {
 		System.out.println(users.get("NAME"));
 		System.out.println(users.get("PASSWORD"));
 		try {
-			userServiceImpl.add(users);
+			userService.add(users);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -31,7 +24,7 @@ public class UserAction extends ExecuteAction {
 	public String delete() 
 	{
 		try {
-			userServiceImpl.delete(this.getProp());
+			userService.delete(this.getProp());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

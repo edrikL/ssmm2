@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<s:fielderror></s:fielderror>
+<form action="<%=request.getContextPath()%>/identity/group_add" method="post">
+ 	    <input type="hidden" value="add_user" name="prop.INPUT">
+     	用户名：<input type="text" name="prop.NAME" >
+    	 密码： <input type="password" name="prop.PASSWORD" >
+    	<input type="submit">
+ </form>
 </body>
 </html>

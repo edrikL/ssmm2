@@ -13,7 +13,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.ssmm2.example.persistence.mapper.UserMapper;
+import org.ssmm2.persistence.mapper.UserMapper;
 
 
 public class Test {

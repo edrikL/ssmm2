@@ -26,7 +26,7 @@ public class UserService  {
 		// TODO Auto-generated method stub
 		
 	}
-	public List<Map<String,Object>> find(int curpage,int pre)
+	public List<Map> find(int curpage,int pre)
 	{
 		return userMapper.findByPage(new RowBounds(curpage,pre));
 	}

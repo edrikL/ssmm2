@@ -38,13 +38,13 @@ public class Test {
 			  users.add(user);
 			}
 			long l=new Date().getTime();
-			userMapper.save(users.toArray());
+			userMapper.insert(users.toArray());
 			long ll=new Date().getTime();
 			
             session.commit();
             System.out.println(ll-l);
             
-            List<Map<Object, Object>> list=userMapper.findByAll();
+            List<Map> list=userMapper.findByAll();
             for(Map<Object, Object> map:list)
             {
               Iterator<Entry<Object, Object>> i=map.entrySet().iterator();

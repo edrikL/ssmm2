@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="org.ssmm2.example.persistence.mapper.UserMapper">
+  <cache/>
+  <insert id="insert">
+   INSERT INTO TB_USER(USER_NAME,USER_PASS,USER_EMAIL,USER_REMARK) VALUES
+   <foreach item="item" index="index" collection="array"  separator="," >
+    (
+     	#{item.USER_NAME,jdbcType=VARCHAR},
+     	#{item.USER_PASS,jdbcType=VARCHAR},
+     	#{item.USER_EMAIL,jdbcType=VARCHAR},
+     	#{item.USER_REMARK,jdbcType=VARCHAR}
+     )
+   </foreach>
+  </insert>
+  
+
+  <delete id="deleteByIds" parameterType="string">
+  	  DELETE FROM TB_USER WHERE ID IN
+      <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
+    	#{item}
+      </foreach>
+  </delete>
+  
+  <delete id="deleteByExamples" parameterType="hashmap">
+  	  DELETE FROM TB_USER WHERE ID IN
+      <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
+    	#{item.ID}
+      </foreach>
+  </delete>
+  
+  <update id="update" parameterType="hashmap">
+  	<foreach item="item" index="index" collection="array"  separator=","  >
+      UPDATE TB_USER SET 
+      	NAME=#{item.NAME},
+      	PASSWORD=#{item.PASSWORD},
+      	MEMARK=${item.REMARK} 
+      WHERE ID =${item.ID}
+    </foreach>
+  </update>
+  
+  <select id="findByIds" resultType="hashmap">
+  	SELECT * FROM TB_USER 
+  	<if test="ID!=null">
+  		WHERE ID IN
+  		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
+  		  #{item}
+  		</foreach>
+  	</if>
+  </select>
+  
+  <select id="findByAll" resultType="hashmap">
+  	SELECT * FROM TB_USER 
+  </select>
+  
+  <select id="conut" resultType="int">
+     SELECT count(*) FROM TB_USER
+  </select>
+  
+  <select id="findByPage" resultType="hashmap">
+   	 SELECT * FROM TB_USER 
+  </select>
+  
+</mapper>

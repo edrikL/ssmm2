@@ -15,50 +15,44 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.ssmm2.persistence.mapper.UserMapper;
 
-
 public class Test {
 	public static void main(String[] args) {
 
 		String resource = "org/ssmm2/example/test/mybatis-config.xml";
-		Reader reader=null;
-		SqlSessionFactory sqlMapper=null;
+		Reader reader = null;
+		SqlSessionFactory sqlMapper = null;
 		SqlSession session = null;
 		try {
 			reader = Resources.getResourceAsReader(resource);
 			sqlMapper = new SqlSessionFactoryBuilder().build(reader);
 			session = sqlMapper.openSession();
 			UserMapper userMapper = session.getMapper(UserMapper.class);
-			Map<String,String> user = new HashMap<String,String>();
+			Map<String, String> user = new HashMap<String, String>();
 			user.put("USER_NAME", "zhuyj1");
 			user.put("USER_PASS", "123456");
 			user.put("USER_REMARK", "");
-			List<Map<String,String>> users=new ArrayList<Map<String,String>>();
-			for(int i=0;i<1500;i++)
-			{
-			  users.add(user);
+			List<Map<String, String>> users = new ArrayList<Map<String, String>>();
+			for (int i = 0; i < 1500; i++) {
+				users.add(user);
 			}
-			long l=new Date().getTime();
+			long l = new Date().getTime();
 			userMapper.insert(users.toArray());
-			long ll=new Date().getTime();
-			
-            session.commit();
-            System.out.println(ll-l);
-            
-            List<Map> list=userMapper.findByAll();
-            for(Map<Object, Object> map:list)
-            {
-              Iterator<Entry<Object, Object>> i=map.entrySet().iterator();
-              while (i.hasNext()) {
-            	  Entry<Object, Object> entry=i.next();
-            	  System.out.print(entry.getKey()+"--");
-            	  System.out.println(entry.getValue());
-            	
-				
+			long ll = new Date().getTime();
+
+			session.commit();
+			System.out.println(ll - l);
+
+			List<Map> list = userMapper.findByAll();
+			for (Map<Object, Object> map : list) {
+				Iterator<Entry<Object, Object>> i = map.entrySet().iterator();
+				while (i.hasNext()) {
+					Entry<Object, Object> entry = i.next();
+					System.out.print(entry.getKey() + "--");
+					System.out.println(entry.getValue());
+				}
+				System.out.println("");
 			}
-              System.out.println("");
-            	
-            }
-            
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

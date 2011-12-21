@@ -16,5 +16,4 @@ public interface BaseMapper {
 	List<Map> findByExample(Map<Object,Object> example);
 	int count();
 	List<Map> findByPage(@Param("rowBounds") RowBounds rowBounds);
-	
 }

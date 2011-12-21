@@ -29,9 +29,9 @@ public class Test {
 			session = sqlMapper.openSession();
 			UserMapper userMapper = session.getMapper(UserMapper.class);
 			Map<String,String> user = new HashMap<String,String>();
-			user.put("NAME", "zhuyj1");
-			user.put("PASSWORD", "123456");
-			user.put("REMARK", "");
+			user.put("USER_NAME", "zhuyj1");
+			user.put("USER_PASS", "123456");
+			user.put("USER_REMARK", "");
 			List<Map<String,String>> users=new ArrayList<Map<String,String>>();
 			for(int i=0;i<1500;i++)
 			{

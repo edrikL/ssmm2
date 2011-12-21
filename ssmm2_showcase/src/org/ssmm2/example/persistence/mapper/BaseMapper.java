@@ -5,17 +5,16 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
-
+@SuppressWarnings("rawtypes")
 public interface BaseMapper {
-	int save(Object...example);
-	int saveByAll(List<Map<Object,Object>> examples);
-	int deleteByExample(Map<String, Object>user);
+	int insert(Object...examples);
+	int deleteByExample(Map user);
 	int deleteByIds(Object...ids);
-	int update(Map<Object,Object>...entity);
-	List<Map<Object,Object>> findByAll();
-	List<Map<Object,Object>> findByIds(String...id);
-	List<Map<Object,Object>> findByExample(Map<Object,Object> example);
+	int update(Map...entity);
+	List<Map> findByAll();
+	List<Map> findByIds(String...id);
+	List<Map> findByExample(Map<Object,Object> example);
 	int count();
-	List<Map<String,Object>> findByPage(@Param("rowBounds") RowBounds rowBounds);
+	List<Map> findByPage(@Param("rowBounds") RowBounds rowBounds);
 	
 }

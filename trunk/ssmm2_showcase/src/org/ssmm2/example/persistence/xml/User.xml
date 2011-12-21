@@ -2,18 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
 <mapper namespace="org.ssmm2.example.persistence.mapper.UserMapper">
   <cache/>
-  <insert id="save">
-   INSERT INTO TB_USER(NAME,PASSWORD,REMARK) VALUES
-   <foreach item="item" index="index" collection="array"   separator="," >
-    (#{item.NAME,jdbcType=VARCHAR},#{item.PASSWORD,jdbcType=VARCHAR},#{item.REMARK,jdbcType=VARCHAR})
+  <insert id="insert">
+   INSERT INTO TB_USER(USER_NAME,USER_PASS,USER_EMAIL,USER_REMARK) VALUES
+   <foreach item="item" index="index" collection="array"  separator="," >
+    (
+     	#{item.USER_NAME,jdbcType=VARCHAR},
+     	#{item.USER_PASS,jdbcType=VARCHAR},
+     	#{item.USER_EMAIL,jdbcType=VARCHAR},
+     	#{item.USER_REMARK,jdbcType=VARCHAR}
+     )
    </foreach>
-  </insert>
-  <insert id="saveByAll" parameterType="list">
-    INSERT INTO TB_USER(NAME,PASSWORD,REMARK) 
-    VALUES
-    <foreach item="item" index="index" collection="list"   separator="," >
-      (#{item.NAME,jdbcType=VARCHAR},#{item.PASSWORD,jdbcType=VARCHAR},#{item.REMARK,jdbcType=VARCHAR})
-    </foreach>
   </insert>
   
 
@@ -43,22 +41,16 @@
   
   <select id="findByIds" resultType="hashmap">
   	SELECT * FROM TB_USER 
-  		<if test="ID!=null">
+  	<if test="ID!=null">
   		WHERE ID IN
   		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
   		  #{item}
   		</foreach>
-  		</if>
+  	</if>
   </select>
   
-    <select id="findByAll" resultType="hashmap">
+  <select id="findByAll" resultType="hashmap">
   	SELECT * FROM TB_USER 
-  		<if test="ID!=null">
-  		WHERE ID IN
-  		<foreach item="item" index="index" collection="array" close="("  separator="," open=")">
-  		  #{item}
-  		</foreach>
-  		</if>
   </select>
   
   <select id="conut" resultType="long">
@@ -66,7 +58,7 @@
   </select>
   
   <select id="findByPage" resultType="hashmap">
-   	SELECT * FROM TB_USER 
+   	 SELECT * FROM TB_USER 
   </select>
   
 </mapper>

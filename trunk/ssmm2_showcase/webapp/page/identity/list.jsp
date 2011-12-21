@@ -8,37 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  ---------------------
- <s:actionerror />
- <s:fielderror fieldName="a"></s:fielderror>
- <s:actionmessage/>
-  -----------------------
-  ognl:<s:property  value="%{#attr['id']}"/><br/>
-  ognl:<s:property  value="#attr['id']"/><br/>
-  ognl:<s:property  value="#attr.id"/><br/>
 
-  ognl:<input type="text" value="#attr.id"><br/>
-  ognl:<input type="text" value="%{#attr.id}"><br/>
-  ognl:<s:textfield value="%{#pageContext.request.contextPath}"></s:textfield><br/>
-  ognlroot:<s:textfield value="%{#root['id']}"></s:textfield><br/>
-  ognlroot:<s:textfield value="%{#root['name']}"></s:textfield><br/>
-  ognlrequest:<s:textfield value="%{#request['id']}"></s:textfield><br/>
-  ognlrequest:<s:textfield value="%{#request['name']}"></s:textfield><br/>
-  ognlrequest:<s:textfield value="#{id}"></s:textfield><br/>
-  ognlrequest:<s:textfield value="#{name}"></s:textfield><br/>
-  ognlrequest:<s:textfield value="%{#request['id']}"></s:textfield><br/>
-  ognlrequest:<s:textfield value="%{#request['name']}"></s:textfield><br/>
-  ognl:<s:property  value="#['id']"/><br/>
-  ognl:<s:property  value="#['name']"/><br/>
-  ognl: %{#attr["id"]}<br/>
-  ognl: %{#attr["name"]}<br/>
-  jsp:<%=request.getContextPath() %><br/>
-  jsp: <%=request.getAttribute("id") %><br/>
-  jsp: <%=request.getAttribute("name") %><br/>
-  el:${pageContext.request.contextPath}<br/>
-  el:${id}<br/>
-
-  
-   
 </body>
 </html>

@@ -21,7 +21,7 @@
   <delete id="deleteByExamples" parameterType="hashmap">
   	  DELETE FROM TB_GROUP WHERE GROUP_ID IN
       <foreach item="item" index="index" collection="array" open="("  separator="," close=")" >
-    	#{item.ID}
+    	#{item.GROUP_ID}
       </foreach>
   </delete>
   

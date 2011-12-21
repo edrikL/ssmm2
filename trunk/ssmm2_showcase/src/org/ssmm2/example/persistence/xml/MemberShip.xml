@@ -34,7 +34,7 @@
     </foreach>
   </update>
   
-  <select id="findByGroupIds" resultType="string">
+  <select id="findByGroupIds" resultType="hashmap">
   	SELECT * FROM TB_MEMBERSHIP 
   		<if test="GROUP_ID!=null">
   		WHERE GROUP_ID IN
@@ -44,7 +44,7 @@
   		</if>
   </select>
   
-   <select id="findByUserIds" resultType="string">
+   <select id="findByUserIds" resultType="hashmap">
   	SELECT * FROM TB_MEMBERSHIP 
   		<if test="GROUP_ID!=null">
   		WHERE USER_ID IN

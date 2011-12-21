@@ -10,11 +10,10 @@ public class GroupAction extends ExecuteAction  {
 	private transient GroupService groupService;
 	private static final long serialVersionUID = 1L;
 	public String add() {
-		Map<String,String> users=this.getProp();
-		System.out.println(users.get("NAME"));
-		System.out.println(users.get("PASSWORD"));
+		Map<String,String> group=this.getProp();
+		System.out.println(group.get("NAME"));
 		try {
-			groupService.add(users);
+			groupService.add(group);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

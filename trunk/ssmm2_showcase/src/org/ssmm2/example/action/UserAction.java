@@ -12,8 +12,8 @@ public class UserAction extends ExecuteAction {
 	
 	public String add() {
 		Map<String,String> users=this.getProp();
-		System.out.println(users.get("NAME"));
-		System.out.println(users.get("PASSWORD"));
+		System.out.println(users.get("USER_NAME"));
+		System.out.println(users.get("USER_PASS"));
 		try {
 			userService.add(users);
 		} catch (Exception e) {

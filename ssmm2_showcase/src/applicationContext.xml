@@ -51,7 +51,7 @@
 	<!--分页插件，dialectClass是指定的方言-->
 	<bean id="pagingPlugin" class="org.ssmm2.common.plugins.PagingPlugin">
 		<property name="dialectClass">
-			<value>org.ssmm2.common.persistence.dialect.DerbyDialect</value>
+			<value>${dialect}</value>
 		</property>
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

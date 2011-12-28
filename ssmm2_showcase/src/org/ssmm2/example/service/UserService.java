@@ -17,9 +17,8 @@ public class UserService  {
 	}
 
 	public int add(Map<String, String> user) throws Exception {
-		  userMapper.insert(user);
-		  userMapper.insert(user);
-		return 0;
+		  
+		return userMapper.insert(user);
 	}
 
 	public void delete(Map<String, String> prop) {

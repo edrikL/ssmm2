@@ -8,18 +8,27 @@
 	   http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	   http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 属性文 件配置 -->
+    <bean id="configBean" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+         	<value>classpath:./config.properties</value>
+        </property>
+    </bean> 
+    
 	<!-- 搜索组件 -->
 	<context:component-scan base-package="org.ssmm2.example">
 		<context:include-filter type="regex" expression=".action.*" />
 		<context:include-filter type="regex" expression=".service.*" />
 	</context:component-scan>
+	
 	<!-- 数据源 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="driverClass" value="org.apache.derby.jdbc.ClientDriver" />
-		<property name="jdbcUrl" value="jdbc:derby://127.0.0.1/sshd"></property>
-		<property name="user" value="sa"></property>
-		<property name="password" value="123456"></property>
+		<property name="driverClass" value="${driver}" />
+		<property name="jdbcUrl" value="${url}"></property>
+		<property name="user" value="${username}"></property>
+		<property name="password" value="${password}"></property>
 	</bean>
 	<!-- 事务管理 -->
 	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

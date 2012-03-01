@@ -159,7 +159,7 @@ public class MapUtil {
 		if (prop.get(key) == null)
 			return null;
 		int[] array = new int[ARRAY_SIZE];
-		String[] s_array = prop.get(key).split(", ");
+		String[] s_array = prop.get(key).split(",");
 		for (int i = 0; i < s_array.length; ++i) {
 			array[i] = NumberUtils.toInt(s_array[i]);
 		}
@@ -171,7 +171,7 @@ public class MapUtil {
 		if (prop.get(key) == null)
 			return null;
 		byte[] array = new byte[ARRAY_SIZE];
-		String[] s_array = prop.get(key).split(", ");
+		String[] s_array = prop.get(key).split(",");
 		for (int i = 0; i < s_array.length; ++i) {
 			array[i] = NumberUtils.toByte(s_array[i]);
 		}
@@ -183,7 +183,7 @@ public class MapUtil {
 		if (prop.get(key) == null)
 			return null;
 		short[] array = new short[ARRAY_SIZE];
-		String[] s_array = prop.get(key).split(", ");
+		String[] s_array = prop.get(key).split(",");
 		for (int i = 0; i < s_array.length; ++i) {
 			array[i] = NumberUtils.toShort(s_array[i]);
 		}
@@ -194,7 +194,7 @@ public class MapUtil {
 		if (prop.get(key) == null)
 			return null;
 		long[] array = new long[ARRAY_SIZE];
-		String[] s_array = prop.get(key).split(", ");
+		String[] s_array = prop.get(key).split(",");
 		for (int i = 0; i < s_array.length; ++i) {
 			array[i] = NumberUtils.toLong(s_array[i]);
 		}
@@ -205,7 +205,7 @@ public class MapUtil {
 		if (prop.get(key) == null)
 			return null;
 		float[] array = new float[ARRAY_SIZE];
-		String[] s_array = prop.get(key).split(", ");
+		String[] s_array = prop.get(key).split(",");
 		for (int i = 0; i < s_array.length; ++i) {
 			array[i] = NumberUtils.toFloat(s_array[i]);
 		}
@@ -216,7 +216,7 @@ public class MapUtil {
 		if (prop.get(key) == null)
 			return null;
 		double[] array = new double[ARRAY_SIZE];
-		String[] s_array = prop.get(key).split(", ");
+		String[] s_array = prop.get(key).split(",");
 		for (int i = 0; i < s_array.length; ++i) {
 			array[i] = NumberUtils.toDouble(s_array[i]);
 		}
@@ -226,7 +226,7 @@ public class MapUtil {
 	public String[] getStringArray(String key) {
 		if (prop.get(key) == null)
 			return null;
-		return prop.get(key).split(", ");
+		return prop.get(key).split(",");
 	}
 
 	public static void main(String[] args) {

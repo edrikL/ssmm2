@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
 <struts>
-  <package  extends="struts-default"  name="identity" namespace="/identity">
-    <action name="user_*" class="org.ssmm2.example.action.UserAction" method="{1}">
-         <result name="input">/page/identity/${prop.INPUT}.jsp</result>
-         <result>/page/identity/list_user.jsp</result>
+  <package  extends="struts-default"  name="users" namespace="/identity">
+    <action name="user" class="org.ssmm2.example.action.UserAction"">
+         <result name="input">/page/users/${prop.INPUT}.jsp</result>
+         <result>/page/users/list_user.jsp</result>
     </action>
-    <action name="group_*" class="org.ssmm2.example.action.GroupAction" method="{1}">
-         <result name="input">/page/identity/${prop.INPUT}.jsp</result>
-         <result>/page/identity/list_user.jsp</result>
+    <action name="group" class="org.ssmm2.example.action.GroupAction"">
+         <result name="input">/page/users/${prop.INPUT}.jsp</result>
+         <result>/page/users/list_user.jsp</result>
     </action>
   </package>
 </struts>

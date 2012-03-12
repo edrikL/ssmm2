@@ -3,5 +3,5 @@
 <struts>
   <package  extends="struts-default"  name="default" namespace="/">
   </package>
-  <include file="struts-identity.xml"/>
+  <include file="struts-users.xml"/>
 </struts>

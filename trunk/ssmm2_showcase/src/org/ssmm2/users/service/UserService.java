@@ -1,4 +1,4 @@
-package org.ssmm2.example.service;
+package org.ssmm2.users.service;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

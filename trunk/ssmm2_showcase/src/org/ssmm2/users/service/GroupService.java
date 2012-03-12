@@ -1,4 +1,4 @@
-package org.ssmm2.example.service;
+package org.ssmm2.users.service;
 
 import java.util.Map;
 

@@ -2,11 +2,11 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN" "struts-2.1.7.dtd" >
 <struts>
   <package  extends="struts-default"  name="users" namespace="/users">
-    <action name="user" class="org.ssmm2.example.action.UserAction"">
+    <action name="user" class="org.ssmm2.example.action.UserAction">
          <result name="input">/page/users/${prop.INPUT}.jsp</result>
          <result>/page/users/list_user.jsp</result>
     </action>
-    <action name="group" class="org.ssmm2.example.action.GroupAction"">
+    <action name="group" class="org.ssmm2.example.action.GroupAction">
          <result name="input">/page/users/${prop.INPUT}.jsp</result>
          <result>/page/users/list_user.jsp</result>
     </action>

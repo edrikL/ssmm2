@@ -1,19 +1,21 @@
-package org.ssmm2.example.action;
+package org.ssmm2.users.action;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.ssmm2.common.web.action.ExecuteAction;
-import org.ssmm2.example.service.GroupService;
+import org.ssmm2.users.service.UserService;
 
-public class GroupAction extends ExecuteAction  {
+public class UserAction extends ExecuteAction {
 	@Autowired
-	private transient GroupService groupService;
+	private transient UserService userService;
 	private static final long serialVersionUID = 1L;
+
+	
 	public String add() {
-		Map<String,String> group=this.getProp();
-		System.out.println(group.get("NAME"));
+		Map<String,String> users=this.getProp();
+		System.out.println(users.get("USER_NAME"));
+		System.out.println(users.get("USER_PASS"));
 		try {
-			groupService.add(group);
+			userService.add(users);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -22,7 +24,7 @@ public class GroupAction extends ExecuteAction  {
 	public String delete() 
 	{
 		try {
-			groupService.delete(this.getProp());
+			userService.delete(this.getProp());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,4 +1,4 @@
-package org.ssmm2.example.test;
+package org.ssmm2.users.test;
 
 import java.io.Reader;
 import java.util.ArrayList;

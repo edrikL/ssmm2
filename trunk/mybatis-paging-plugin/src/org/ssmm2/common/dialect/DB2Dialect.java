@@ -1,7 +1,9 @@
 package org.ssmm2.common.dialect;
 
 /**
- * @author badqiu
+ * 
+ * @author Administrator
+ *
  */
 public class DB2Dialect extends Dialect{
 

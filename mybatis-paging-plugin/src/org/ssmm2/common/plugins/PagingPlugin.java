@@ -78,6 +78,12 @@ public class PagingPlugin implements Interceptor {
 		}
 	}
 
+	/**
+	 * 拼接好sql后。重新构造MappedStatement执行对象
+	 * @param ms
+	 * @param newSqlSource
+	 * @return MappedStatement
+	 */
 	private MappedStatement copyFromMappedStatement(MappedStatement ms,
 			SqlSource newSqlSource) {
 		MappedStatement.Builder builder = new MappedStatement.Builder(
@@ -88,7 +94,10 @@ public class PagingPlugin implements Interceptor {
 		builder.fetchSize(ms.getFetchSize());
 		builder.statementType(ms.getStatementType());
 		builder.keyGenerator(ms.getKeyGenerator());
-		builder.keyProperty(ms.getKeyProperties());
+		if(ms.getKeyProperties()!=null)
+	    //3.0以后，getKeyProperties()修改为一个数组
+		builder.keyProperty(ms.getKeyProperties().toString());
+		//builder.keyProperty(ms.getKeyProperties());
 		builder.timeout(ms.getTimeout());
 		builder.parameterMap(ms.getParameterMap());
 		builder.resultMaps(ms.getResultMaps());
@@ -128,7 +137,7 @@ public class PagingPlugin implements Interceptor {
 		} catch (Exception e) {
 			throw new RuntimeException("cannot create dialect instance by dialectClass:"+ dialectClass, e);
 		}
-		System.out.println(PagingPlugin.class.getSimpleName() + ".dialect="+ dialectClass);
+		//System.out.println(PagingPlugin.class.getSimpleName() + ".dialect="+ dialectClass);
 	}
 
 }

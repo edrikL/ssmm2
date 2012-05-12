@@ -1,7 +1,9 @@
 package org.ssmm2.common.dialect;
 
 /**
- * @author zyj
+ * 
+ * @author Administrator
+ *
  */
 public class DerbyDialect extends Dialect{
 

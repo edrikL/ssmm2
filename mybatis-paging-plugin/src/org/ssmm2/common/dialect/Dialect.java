@@ -1,7 +1,8 @@
 package org.ssmm2.common.dialect;
 /**
- * 类似hibernate的Dialect,但只精简出分页部�?
- * @author badqiu
+ * 
+ * @author Administrator
+ *
  */
 public class Dialect {
 	

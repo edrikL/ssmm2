@@ -1,7 +1,8 @@
 package org.ssmm2.common.dialect;
 /**
- * Dialect for HSQLDB
- * @author badqiu
+ * 
+ * @author Administrator
+ *
  */
 public class HSQLDialect extends Dialect{
 

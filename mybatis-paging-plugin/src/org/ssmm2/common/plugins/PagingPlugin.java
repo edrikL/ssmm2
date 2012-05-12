@@ -13,7 +13,7 @@ import org.apache.ibatis.plugin.Plugin;
 import org.apache.ibatis.plugin.Signature;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
-import org.ssmm2.common.persistence.dialect.Dialect;
+import org.ssmm2.common.dialect.Dialect;
 
 @Intercepts({ @Signature(type = Executor.class, method = "query", args = {
 		MappedStatement.class, Object.class, RowBounds.class,

@@ -1,4 +1,4 @@
-package org.ssmm2.common.persistence.dialect;
+package org.ssmm2.common.dialect;
 /**
  * Dialect for HSQLDB
  * @author badqiu

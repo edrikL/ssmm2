@@ -1,6 +1,8 @@
 package org.ssmm2.common.dialect;
 /**
- * @author badqiu
+ * 
+ * @author Administrator
+ *
  */
 public class PostgreSQLDialect extends Dialect{
 	
@@ -14,8 +16,9 @@ public class PostgreSQLDialect extends Dialect{
 	
 	public String getLimitString(String sql, int offset,
 			String offsetPlaceholder, int limit, String limitPlaceholder) {
-		return new StringBuffer( sql.length()+20 )
+		return new StringBuffer( sql.length()+50 )
 		.append(sql)
+		.append(" order by  1")
 		.append(offset > 0 ? " limit "+limitPlaceholder+" offset "+offsetPlaceholder : " limit "+limitPlaceholder)
 		.toString();
 	}

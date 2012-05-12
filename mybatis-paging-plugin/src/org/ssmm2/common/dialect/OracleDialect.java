@@ -1,6 +1,8 @@
 package org.ssmm2.common.dialect;
 /**
- * @author badqiu
+ * 
+ * @author Administrator
+ *
  */
 public class OracleDialect extends Dialect{
 	

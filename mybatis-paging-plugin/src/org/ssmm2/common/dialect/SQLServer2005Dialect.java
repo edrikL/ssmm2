@@ -1,12 +1,10 @@
 package org.ssmm2.common.dialect;
 
 /**
- *
- * @author badqiu
+ * 
+ * @author Administrator
  *
  */
-// Hibernate BUG: http://opensource.atlassian.com/projects/hibernate/browse/HHH-2655
-// TODO 完善并测试SQLServer2005Dialect
 public class SQLServer2005Dialect extends Dialect{
 
 	@Override

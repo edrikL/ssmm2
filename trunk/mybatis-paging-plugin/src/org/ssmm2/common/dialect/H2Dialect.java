@@ -2,9 +2,8 @@ package org.ssmm2.common.dialect;
 
 
 /**
- * A dialect compatible with the H2 database.
  * 
- * @author Thomas Mueller
+ * @author Administrator
  *
  */
 public class H2Dialect extends Dialect {
